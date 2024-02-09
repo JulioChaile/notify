@@ -1,0 +1,145 @@
+:root {
+    --n-height: 40px;
+}
+
+.relative-position {
+    position: relative;
+}
+
+.absolute,
+.absolute-top,
+.absolute-left,
+.absolute-right,
+.absolute-bottom,
+.absolute-top-right,
+.absolute-bottom-left,
+.absolute-bottom-right,
+.absolute-top-left {
+    position: absolute !important;
+}
+
+.absolute-top,
+.absolute-top-right,
+.absolute-top-left {
+    top: 0px;
+}
+
+.absolute-right,
+.absolute-bottom-right,
+.absolute-top-right {
+    right: 0px;
+}
+
+.absolute-bottom,
+.absolute-bottom-right,
+.absolute-bottom-left {
+    bottom: 0px;
+}
+
+.absolute-left,
+.absolute-bottom-left,
+.absolute-top-left {
+    left: 0px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.badge-top-right {
+    top: -7px !important;
+    right: -7px !important;
+}
+
+.text-mini {
+    font-size: 10px;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.notify-container {
+    max-width: 350px;
+    margin: auto;
+    height: 0;
+    z-index: 3000;
+    pointer-events: all;
+}
+
+.notify {
+    border-radius: 5px;
+    min-height: 40px;
+    height: auto;
+    color: white;
+    opacity: 0.9;
+}
+
+#container-notify {
+    z-index: 3000 !important;
+    bottom: 40px !important;
+    width: auto;
+    max-width: 350px;
+    margin: auto;
+    pointer-events: none;
+}
+
+.mostrar-desde-izquierda,
+.mostrar-desde-derecha,
+.notify-show,
+.aparecer,
+.notify-hidden,
+.principalback::before {
+    animation-duration: 1s;
+    animation-delay: 0.3s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: initial;
+}
+
+.notify-show {
+    animation-delay: 0s !important;
+}
+
+.notify-show {
+    opacity: 0;
+    transform: translateY(- calc(100% + 44px));
+    animation-name: showNotify;
+}
+
+@keyframes showNotify {
+    0% {
+        opacity: 0;
+        transform: translateY(calc(100% + 44px));
+    }
+
+    99.999999% {
+        height: var(--n-height);
+    }
+
+    100% {
+        opacity: 0.9;
+        transform: translateY(- calc(100% + 44px));
+        height: auto;
+    }
+}
+
+.notify-hidden {
+    opacity: 0.9;
+    height: auto;
+    animation-name: hiddenNotify;
+}
+
+@keyframes hiddenNotify {
+    0% {
+        opacity: 0.9;
+        transform: translateY(- calc(100% + 44px));
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(calc(100% + 44px));
+    }
+}

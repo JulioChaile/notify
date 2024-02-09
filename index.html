@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notify [DEMO]</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mt-5">
+          <div class="card-body">
+            <h5 class="card-title">Props Notify</h5>
+            Todas las propiedades son opcionales
+            <form id="props-notify-form">
+              <div class="form-group">
+                <label for="textInput">Texto a notificar [props | props.text]</label>
+                <input type="text" class="form-control" id="textInput" name="text" placeholder="Ingrese un texto">
+              </div>
+              <div class="form-group">
+                <label for="selectInput">Tipo de notificacion [props.type]</label>
+                <select class="form-control" id="selectInput" name="type">
+                    <option value="">Sin tipo</option>
+                    <option value="error">Error</option>
+                    <option value="exito">Exito</option>
+                    <option value="completar">Completar</option>
+                    <option value="requeridos">Requeridos</option>
+                    <option value="archivo_success">Archivo generado</option>
+                    <option value="busqueda_fail">Busqueda sin resultados</option>
+                    <option value="auth_fail">Fallo autentificación</option>
+                    <option value="per_fail">Fallo permisos</option>
+                    <option value="fail">Error inesperado</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="numberInput">Tiempo de expiracion en milisegundos [props.number]</label>
+                <input type="number" class="form-control" id="numberInput" name="number" value="5000">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="checkboxInput" name="close">
+                <label class="form-check-label" for="checkboxInput">Boton para cerrar [props.close]</label>
+              </div>
+              <div class="form-group">
+                <label for="textareaInput">Clases CSS propias o de Bootstrap [props.classes]</label>
+                <textarea class="form-control" id="textareaInput" name="classes" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Notify</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('props-notify-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const form = document.getElementById('props-notify-form')
+        const formData = new FormData(form);
+        const formObject = {};
+      
+        for (let [key, value] of formData.entries()) {
+            formObject[key] = value
+        }
+
+        formObject.close = !!formObject.close
+
+        window.Notify(formObject)
+    });
+  </script>
+</body>
+</html>
