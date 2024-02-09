@@ -51,6 +51,12 @@ Este repositorio contiene un módulo en JavaScript puro que permite crear fácil
     // Delete notification (optional)
     // hidden()
 
+La función Notify() devuelve un objeto con tres propiedades:s:
+
+- **notify:** El elemento HTML de la notificación creada.
+- **idTimer:**  El identificador del temporizador para la notificación, que puede utilizarse para cancelar la ocultación automática.
+- **hidden:** Una función que puede llamarse para ocultar manualmente la notificación si es necesario.
+
 ## Parámetros
 - **props**: Un objeto que contiene las propiedades para la notificación o una cadena de texto para enviar la notificación con su contenido.
 - **props.text** (opcional): Cadena de texto o cadena HTML que aparecerá dentro de la notificación.
@@ -64,7 +70,7 @@ Este repositorio contiene un módulo en JavaScript puro que permite crear fácil
 
 # English
 
-## Módulo de Notificaciones Emergentes para la Web
+## Web Pop-up Notification Module
 
 This repository contains a pure JavaScript module that allows you to easily create pop-up notifications on the web. These notifications can be customized using different parameters and integrate with HTML, CSS, and Bootstrap for visually appealing experience.
 
@@ -105,6 +111,12 @@ This repository contains a pure JavaScript module that allows you to easily crea
 
     // Delete notification (optional)
     // hidden()
+
+The `Notify()` function returns an object with three properties:
+
+- **notify:** The HTML element of the created notification.
+- **idTimer:** The timer identifier for the notification, which can be used to cancel automatic hiding.
+- **hidden:** A function that can be called to manually hide the notification if necessary.
 
 ## Parameters
 - props: An object containing properties for the notification or a string to send the notification with its content.
