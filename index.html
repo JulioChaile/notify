@@ -59,6 +59,7 @@
         }
 
         formObject.close = !!formObject.close
+        formObject.number = parseInt(formObject.number || 0)
 
         window.Notify(formObject)
     });
