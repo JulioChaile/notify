@@ -27,8 +27,8 @@
                 <input type="text" class="form-control" id="textInput" name="text" placeholder="Ingrese un texto">
               </div>
               <div class="form-group">
-                <label for="numberInput">Tiempo de expiracion en milisegundos [props.number]</label>
-                <input type="number" class="form-control" id="numberInput" name="number" value="5000">
+                <label for="numberInput">Tiempo de expiracion en milisegundos [props.time]</label>
+                <input type="number" class="form-control" id="numberInput" name="time" value="5000">
               </div>
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="checkboxInput" name="close">
@@ -59,7 +59,7 @@
         }
 
         formObject.close = !!formObject.close
-        formObject.number = parseInt(formObject.number || 0)
+        formObject.time = parseInt(formObject.time || 0)
 
         window.Notify(formObject)
     });
