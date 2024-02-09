@@ -1,32 +1,9 @@
-//import { PRE } from "./constants"
-
-const PRE = {
-    error: 'Hubo un error al procesar la solicitud, inténtelo nuevamente',
-    exito: 'La operación se realizó exitosamente',
-    completar: 'Debe completar todos los campos para continuar',
-    requeridos: 'Debe completar los campos requeridos para continuar',
-    archivo_success: '¡Archivo generado!',
-    busqueda_fail: 'La busqueda no produjo resultados',
-    auth_fail: 'Su sesión ha expirado, vuelva a iniciar para continuar',
-    per_fail: 'No tienes los permisos necesarios para realizar esta acción',
-    fail: 'Ocurrió un error inesperado.'
-}
-
 /**
  * Crea una notificacion emergente desde abajo, se le puede enviar una cadena o un html en forma de cadena
  * Bootstrap 4.5
  * 
  * @param   {object|string}     props           Propiedades para la notificacion, si es una cadena se envia la notificacion con su contenido
  * @param   {string=}           props.text      Cadena de texto o cadena html que aparecera dentro de la notificacion
- * @param   {string=}           props.type      Si se envia esta propiedad se creara una notificacion predeterminada
- *                                              error: 'Hubo un error al procesar la solicitud, inténtelo nuevamente',
- *                                              exito: 'La operación se realizó exitosamente',
- *                                              completar: 'Debe completar todos los campos para continuar',
- *                                              requeridos: 'Debe completar los campos requeridos para continuar',
- *                                              busqueda_fail: 'La busqueda no produjo resultados'',
- *                                              auth_fail: 'Su sesión ha expirado, vuelva a iniciar para continuar',
- *                                              per_fail: 'No tienes los permisos necesarios para realizar esta acción',
- *                                              fail: 'Ocurrió un error inesperado.'
  * @param   {number=}           props.time      Tiempo de duracion en pantalla de la notificacion
  * @param   {boolean=}          props.close     Si la propiedad "close" es true se agrega un boton para cerrar la notificacion
  * @param   {string=}           props.classes   Cadena de texto con clases css separadas por espacios para personalizar la notificacion
@@ -35,8 +12,6 @@ function Notify (props) {
     let text = typeof props === 'string'
         ? props
         : props.text
-
-    const type = props.type || ''
 
     const time = typeof props.time === 'number'
         ? props.time
@@ -66,7 +41,7 @@ function Notify (props) {
 
     notify.className = 'notify-container notify-show mt-1'
     notify.innerHTML = `<div class="relative-position bg-black notify p-2 text-center d-flex align-items-center justify-content-center ${classes}">
-                            ${PRE[type] || text}
+                            ${text}
                         </div>`
 
     // Añado la notificacion al contenedor
